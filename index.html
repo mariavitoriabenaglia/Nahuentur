@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gerador comercial de orçamentos de passeios da Nahuentur." />
+    <title>Orçamentos Nahuentur</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-header">
+        <div class="brand-lockup">
+          <img src="assets/nahuentur-logo.webp" alt="Nahuentur" />
+          <div><strong>Nahuentur</strong><span>Central de orçamentos</span></div>
+        </div>
+        <div class="header-copy">
+          <span>Uso comercial</span>
+          <h1>Gerador de orçamentos</h1>
+          <p>Pré-qualifique o lead, escolha o formato e gere a proposta certa.</p>
+        </div>
+        <div class="catalog-badge"><strong id="tour-count">0</strong><span>passeios disponíveis</span></div>
+      </header>
+
+      <section class="quote-workspace">
+        <div class="quote-controls-card">
+          <div class="qualification-panel">
+            <div class="quote-step-heading"><span>1</span><div><h2>Pré-qualifique o lead</h2><p>Confirme o perfil antes de enviar portfólio, preço ou desconto.</p></div></div>
+
+            <div class="lead-fields-grid">
+              <label><span>Nome do cliente <em>opcional</em></span><input id="customer-name" placeholder="Ex.: Ana" /></label>
+              <label><span>Data da viagem</span><input id="travel-date" placeholder="Ex.: 10 a 15/09" /></label>
+            </div>
+            <button type="button" id="no-date" class="unknown-date">○ Cliente ainda não definiu a data</button>
+
+            <div class="prequal-section people-section">
+              <strong>Quantas pessoas?</strong>
+              <div class="people-control people-inline">
+                <button type="button" id="people-minus" aria-label="Diminuir pessoas">−</button>
+                <input id="people" aria-label="Quantidade de pessoas" inputmode="numeric" min="1" max="50" type="number" placeholder="—" />
+                <button type="button" id="people-plus" aria-label="Aumentar pessoas">+</button>
+              </div>
+            </div>
+
+            <div class="prequal-section"><strong>O que o cliente quer conhecer?</strong><div id="interest-options" class="interest-options"></div></div>
+            <div class="prequal-section">
+              <strong>Como o cliente prefere receber?</strong>
+              <div class="message-style-options">
+                <button type="button" data-style="direct"><span>⚡ Objetivo</span><small>Preço, principais pontos e o que inclui</small></button>
+                <button type="button" data-style="detailed"><span>✨ Detalhado</span><small>Roteiro completo, horários e informações</small></button>
+              </div>
+            </div>
+            <div id="qualification-status" class="qualification-status pending"></div>
+          </div>
+
+          <div id="quote-builder" class="quote-builder waiting">
+            <div class="quote-step-heading"><span>2</span><div><h2>Monte o orçamento</h2><p>Use um orçamento pronto ou selecione os passeios na ordem dos dias.</p></div></div>
+            <div class="package-presets">
+              <div class="package-presets-head"><strong>Orçamentos prontos para setembro</strong><small>Montanha ou neve + vinícola + cidade/litoral</small></div>
+              <div id="package-presets" class="package-presets-grid"></div>
+            </div>
+
+            <div class="quote-search-row">
+              <input id="tour-search" aria-label="Pesquisar passeio" placeholder="Pesquisar passeio..." />
+              <div id="destination-tabs" class="destination-tabs" aria-label="Filtrar destino"></div>
+            </div>
+            <div id="tour-picker" class="tour-picker"></div>
+
+            <div class="quote-config-grid condition-only">
+              <div class="quote-config-block">
+                <div class="quote-step-heading compact"><span>3</span><div><h3>Condição comercial</h3><p>A porcentagem não aparece para o cliente.</p></div></div>
+                <div id="discount-options" class="discount-options"></div>
+                <p id="mixed-price-note" class="mixed-price-note" hidden></p>
+              </div>
+            </div>
+            <div id="selected-itinerary" class="selected-itinerary" hidden></div>
+          </div>
+        </div>
+
+        <div class="quote-preview-card">
+          <div class="quote-preview-head">
+            <div><span id="preview-eyebrow" class="eyebrow">Pré-qualificação</span><h2 id="preview-title">Perguntas que ainda faltam</h2></div>
+            <button type="button" id="reset" class="button ghost quote-reset">Limpar</button>
+          </div>
+          <pre id="quote-output" class="quote-output qualification-output"></pre>
+          <div id="quote-empty" class="quote-empty" hidden><span>✦</span><h3>Lead pré-qualificado</h3><p>Escolha um orçamento pronto ou os passeios para gerar a mensagem com valores.</p></div>
+          <button type="button" id="copy" class="button primary quote-copy"><span>▣</span><span id="copy-label">Copiar perguntas de pré-qualificação</span></button>
+        </div>
+      </section>
+      <div id="toast" class="toast" role="status" hidden></div>
+    </main>
+
+    <script src="tours.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
