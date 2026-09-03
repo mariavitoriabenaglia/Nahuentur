@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gerador de Orçamentos Nahuentur
 
 Versão em HTML, CSS e JavaScript pronta para abrir no VS Code e publicar gratuitamente no GitHub Pages.
@@ -52,3 +53,7 @@ Abra o arquivo `tours.js`. Cada passeio possui um objeto com nome, detalhes, inc
 - `promo`: valor promocional, quando existir.
 
 Se uma condição não existir em determinado passeio, não adicione essa chave. O gerador manterá esse passeio no valor normal e aplicará a condição aos demais.
+=======
+# Nahuentur
+Página de orçamentos
+>>>>>>> 4fa282df3cb45d6d35bf81297441b77c657e5601
